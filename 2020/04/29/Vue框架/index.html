@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  
+  <title>Vue框架 [ Hexo ]</title>
+  
+    <!-- stylesheets list from config.yml -->
+    
+      <link rel="stylesheet" href="/css/iLiKE.css">
+    
+  
+  
+  
+  <script src="//cdn1.lncld.net/static/js/3.1.1/av-min.js"></script>
+    <script id="leancloud">
+      AV.init({
+          appId: "6E5zTbTljdUbVW2WkXPsXGJk-gzGzoHsz",
+          appKey: "0vsyDKfNpeSECAI70J794ugv"
+      });
+    </script>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+    <div class="header">
+        <div class="container">
+    <div class="menu">
+      <div class="menu-left">
+        <a href="/">
+          <img src="/favicon.ico"></img>
+        </a>
+      </div>
+      <div class="menu-right">
+        
+          
+          
+          
+          
+          
+          
+          <a href="/">Home</a>
+        
+          
+          
+          
+          
+          
+          
+          <a href="/archives">Archives</a>
+        
+          
+          
+          
+          
+          
+          
+          <a href="/about">About</a>
+        
+          
+          
+          
+          
+          
+          
+          <a href="/tags">Tags</a>
+        
+      </div>
+    </div>
+</div>
+    </div>
+    <div class="container">
+        <h1 class="post-title">Vue框架</h1>
+<article class="post markdown-style">
+  <p>Vue.js 安装<br>1、独立版本<br>我们可以在 Vue.js 的官网上直接下载 vue.min.js 并用 <script> 标签引入。<br>2.NPM 方法<br>由于 npm 安装速度慢，本教程使用了淘宝的镜像及其命令 cnpm，安装使用介绍参照：使用淘宝 NPM 镜像。</p>
+<p>npm 版本需要大于 3.0，如果低于此版本需要升级它：</p>
+<h1 id="查看版本"><a href="#查看版本" class="headerlink" title="查看版本"></a>查看版本</h1><p>$ npm -v<br>2.3.0</p>
+<p>#升级 npm<br>cnpm install npm -g</p>
+<h1 id="升级或安装-cnpm"><a href="#升级或安装-cnpm" class="headerlink" title="升级或安装 cnpm"></a>升级或安装 cnpm</h1><p>npm install cnpm -g<br>在用 Vue.js 构建大型应用时推荐使用 NPM 安装：</p>
+<h1 id="最新稳定版"><a href="#最新稳定版" class="headerlink" title="最新稳定版"></a>最新稳定版</h1><p>$ cnpm install vue</p>
+<p>注意：Vue.js 不支持 IE8 及其以下 IE 版本。</p>
+<p>Vue.js 目录结构<br>上一章节中我们使用了 npm 安装项目，我们在 IDE（Eclipse、Atom等） 中打开该目录，结构如下所示：<br><img src="F:%5Chexodoc%5Chexo%5Csource%5Cimages/vuedir.jpg" alt="RUNOOB 图标"><br><img src="F:\hexodoc\hexo\source\images/vuedir.jpg" ></p>
+<p>目录解析<br>目录/文件    说明<br>build    项目构建(webpack)相关代码<br>config    配置目录，包括端口号等。我们初学可以使用默认的。<br>node_modules    npm 加载的项目依赖模块<br>src<br>这里是我们要开发的目录，基本上要做的事情都在这个目录里。里面包含了几个目录及文件：</p>
+<p>assets: 放置一些图片，如logo等。<br>components: 目录里面放了一个组件文件，可以不用。<br>App.vue: 项目入口文件，我们也可以直接将组件写这里，而不使用 components 目录。<br>main.js: 项目的核心文件。<br>static    静态资源目录，如图片、字体等。<br>test    初始测试目录，可删除<br>.xxxx文件    这些是一些配置文件，包括语法配置，git配置等。<br>index.html    首页入口文件，你可以添加一些 meta 信息或统计代码啥的。<br>package.json    项目配置文件。<br>README.md    项目的说明文档，markdown 格式<br>在前面我们打开 APP.vue 文件，代码如下（解释在注释中）：</p>
+<p>src/APP.vue</p>
+<!-- 展示模板 -->
+<template>
+  <div id="app">
+    <img src="./assets/logo.png">
+    <hello></hello>
+  </div>
+</template>
+
+<script>
+// 导入组件
+import Hello from './components/Hello'
+
+export default {
+  name: 'app',
+  components: {
+    Hello
+  }
+}
+</script>
+<!-- 样式代码 -->
+<style>
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+</style>
+
+</p><p>接下来我们可以尝试修改下初始化的项目，将 Hello.vue 修改为以下代码：</p>
+<p>src/components/Hello.vue<br><template><br>  <div class="hello"><br>    <h1></h1><br>  </div><br></template></p>
+<script>
+export default {
+  name: 'hello',
+  data () {
+    return {
+      msg: '欢迎来到菜鸟教程！'
+    }
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p>Vue (读音 /vjuː/，类似于 view) 是一套用于构建用户界面的渐进式JavaScript框架。与其它大型框架不同的是，Vue 被设计为可以自底向上逐层应用。Vue 的核心库只关注视图层，方便与第三方库或既有项目整合。<br>Vue.js是一套构建用户界面的渐进式框架。与其他重量级框架不同的是，Vue 采用自底向上增量开发的设计。Vue 的核心库只关注视图层，并且非常容易学习，非常容易与其它库或已有项目整合。另一方面，Vue 完全有能力驱动采用单文件组件和Vue生态系统支持的库开发的复杂单页应用。<br>Vue.js 的目标是通过尽可能简单的 API 实现响应的数据绑定和组合的视图组件 。<br>Vue.js 自身不是一个全能框架——它只聚焦于视图层。因此它非常容易学习，非常容易与其它库或已有项目整合。另一方面，在与相关工具和支持库一起使用时 [3]  ，Vue.js 也能完美地驱动复杂的单页应用。</p>
+<p>特点编辑<br>易用<br>在有HTML CSS JavaScript的基础上，快速上手。<br>灵活<br>简单小巧的核心，渐进式技术栈，足以应付任何规模的应用。<br>性能<br>20kb min+gzip 运行大小、超快虚拟 DOM 、最省心的优化。 [4]</p>
+<p>目录/文件    说明<br>build    项目构建(webpack)相关代码<br>config    配置目录，包括端口号等。我们初学可以使用默认的。<br>node_modules    npm 加载的项目依赖模块<br>src<br>包含了几个目录及文件：<br>assets: 放置一些图片，如logo等。<br>components: 目录里面放了一个组件文件，可以不用。<br>App.vue: 项目入口文件，我们也可以直接将组件写这里，而不使用 components 目录。<br>main.js: 项目的核心文件。<br>static    静态资源目录，如图片、字体等。<br>test    初始测试目录，可删除<br>.xxxx文件    这些是一些配置文件，包括语法配置，git配置等。<br>index.html    首页入口文件，你可以添加一些 meta 信息或统计代码啥的。<br>package.json    项目配置文件。<br>README.md    项目的说明文档，markdown 格式</p>
+<p>Vue.js 的 API 是参考了AngularJS、KnockoutJS、Ractive.js、Rivets.js。<br>Vue.js 的 API 的对于其他框架的参考不仅是参考，其中也包含了许多 Vue.js 的独特功能。</p>
+
+</article>
+
+    <div class="pagenator post-pagenator">
+    
+    
+        <a class="extend prev post-prev" href="/2020/04/29/image/">prev</a>
+    
+
+    
+    <p>last update time 2020-04-29</p>
+    
+    
+        <a class="extend next post-next" href="/2020/04/29/%E7%BB%8F%E8%90%A5%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/">next</a>
+    
+    </div>
+
+    </div>
+    <div class="footer">
+        <div class="container">
+    <div class="social">
+	<ul class="social-list">
+		
+			
+				
+				
+				<li>
+					<a href="mailto:1178752402@qq.com" title="email" target="_blank">
+					<i class="fa fa-email"></i>
+					</a>
+				</li>
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+				
+				<li>
+					<a href="https://github.com/CaiChenghan" title="github" target="_self">
+					<i class="fa fa-github"></i>
+					</a>
+				</li>
+			
+		
+			
+		
+			
+		
+			
+		
+			
+				
+				<li>
+					<a href="https://www.jianshu.com/u/565c8e790605" title="jianshu" target="_self">
+					<i class="fa fa-jianshu"></i>
+					</a>
+				</li>
+			
+		
+			
+		
+			
+		
+			
+		
+	</ul>
+</div>
+    <div class="copyright">
+        <span>
+            
+            
+            
+                © John Doe 2017 - 2020
+            
+        </span>
+    </div>
+    <div class="power">
+        <span>
+            Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> & <a href="https://github.com/CaiChenghan/iLiKE" target="_blank" rel="noopener">iLiKE Theme</a>
+        </span>
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <!--page counter part-->
+<script>
+function addCount (Counter) {
+    url=$('.article-date').attr('href').trim();
+    title = $('.article-title').text().trim();
+    var query = new AV.Query(Counter);
+    //use url as unique idnetfication
+    query.equalTo("url",url);
+    query.find({
+        success: function(results) {
+            if (results.length>0) {
+                var counter=results[0];
+                counter.fetchWhenSave(true); //get recent result
+                counter.increment("time");
+                counter.save();
+            } else {
+                var newcounter=new Counter();
+                newcounter.set("title",title);
+                newcounter.set("url",url);
+                newcounter.set("time",1);
+                newcounter.save(null,{
+                    success: function(newcounter) {
+                        //alert('New object created');
+                    }, error: function(newcounter,error) {
+                        alert('Failed to create');
+                    }
+                })
+            }
+        },
+        error: function(error) {
+            //find null is not a error
+            alert('Error:'+error.code+" "+error.message);
+        }
+    });
+}
+$(function() {
+    var Counter=AV.Object.extend("Counter");
+    //only increse visit counting when intering a page
+    if ($('.article-title').length == 1) {
+       addCount(Counter);
+    }
+    var query=new AV.Query(Counter);
+    query.descending("time");
+    // the sum of popular posts
+    query.limit(10); 
+    query.find({
+        success: function(results) {
+                for(var i=0;i<results.length;i++) {
+                    var counter=results[i];
+                    title=counter.get("title");
+                    url=counter.get("url");
+                    time=counter.get("time");
+                    // add to the popularlist widget
+                    showcontent=title+" ("+time+")";
+                    //notice the "" in href
+                    $('.popularlist').append('<li><a href="'+url+'">'+showcontent+'</a></li>');
+                }
+            },
+        error: function(error) {
+            alert("Error:"+error.code+" "+error.message);
+        }
+    });
+});
+</script>
+</div>
+    </div>
+</body>
+</html>
